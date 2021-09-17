@@ -1,0 +1,24 @@
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    padding-top: 75px;
+    -user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+@media (max-width: 600px) {
+    .logo {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo{
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,38 @@
+.mainWelcome {
+    background-image: url("../../assets/img/BG_VICHY0Ingreso.jpg");
+    background-position: center bottom;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.containerBtn {
+    position: absolute;
+    text-align: center;
+    bottom: -20px;
+}
+
+@media (max-width: 768px) {
+    .mainWelcome {
+        background-image: url("../../assets/img/VICHY02_05-Cel.jpg");
+
+        .containerFlex {
+            height: 35vh;
+        }
+    }
+
+    .containerBtn {
+        position: absolute;
+        text-align: center;
+        bottom: -50px;
+    }
+
+}
+
+@media (max-width: 414px) {
+    .mainWelcome {
+        span {
+            display: inline;
+        }
+    }
+}
