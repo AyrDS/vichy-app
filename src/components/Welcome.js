@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { context } from "../context/Points";
 import Logo from "./ui/Logo";
 
-const Welcome = () => {
+const Welcome = ({ history }) => {
+
+    const { reset } = useContext(context);
+
+    const handleStart = () => {
+        reset();
+        history.push("/question1");
+    }
+
     return (
         <main className="mainWelcome">
             <div className="container">
@@ -11,7 +20,7 @@ const Welcome = () => {
                     <h3>¡Mucha Suerte!</h3>
 
                     <div className="containerBtn">
-                        <Link className="btn" to="/question1">Comenzá acá</Link>
+                        <button className="btn" onClick={handleStart} >Comenzá acá</button>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,19 @@
 import Swal from 'sweetalert2';
+import { useForm } from "../hooks/useForm";
+import { useContext, useState } from 'react';
+import Checkbock from './ui/Checkbox';
 import Logo from "./ui/Logo";
 import star from "../assets/img/Star.png";
-import { useForm } from "../hooks/useForm";
+import { context } from '../context/Points';
+
 
 
 const Form = ({ history }) => {
 
-    const [formValues, handleInputChange, handleCheckbox] = useForm({
+    const { points } = useContext(context);
+    const [checked, setChecked] = useState(false);
+
+    const [formValues, handleInputChange] = useForm({
         name: "",
         addres: "",
         location: "",
@@ -14,31 +21,40 @@ const Form = ({ history }) => {
         check: false
     });
 
-    const { name, addres, location, cp, check } = formValues;
+    const { name, addres, location, cp } = formValues;
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (isFormValid()) {
-            console.log("Todo ok mi rey");
+            history.push("/form/valid");
         }
     }
 
     const isFormValid = () => {
-        if (name.trim().length === 0 || addres.trim().length === 0 || location.trim().length === 0 || cp.length < 4 || !check) {
-            Swal.fire({
-                title: "Hubo un error al completar tus datos",
-                confirmButtonText: "Continuar",
-                buttonsStyling: false,
-                customClass: {
-                    title: "title-class",
-                    confirmButton: "btn",
-                }
-            });
+        if (name.trim().length === 0 || addres.trim().length === 0 || location.trim().length === 0 || cp.length < 4 || !checked) {
+        history.push("/form/notvalid");
             return false
         }
 
         return true;
+    }
+
+    const handleByC = () => {
+        Swal.fire({
+            title: "Bases y condiciones",
+            confirmButtonText: "ACEPTAR",
+            html: "<p>Al suministrar tus datos personales aceptas los Términos Legales y la Política de Privacidad de Vichy Argentina la cual se encuentra disponible en nuestro sitio web. En el marco de esta acciñon, adquirirás como beneficio un kit de producto compuiesto por Ampollas Vichi Liftactiv de forma gratuita en el plazo de 20 días.</p>",
+            buttonsStyling: false,
+            showCancelButton: true,
+            cancelButtonText: "CANCELAR",
+            customClass: {
+                title: "title-class",
+                confirmButton: "btn-tyc",
+                cancelButton: "btn-tyc-cancel",
+                popup: "popup"
+            }
+        });;
     }
 
     return (
@@ -49,7 +65,7 @@ const Form = ({ history }) => {
                 <p className="title">HICISTE</p>
                 <div className="flexTitle">
                     <img src={star} alt="star" className="star" />
-                    <p><span>120</span>pts.</p>
+                    <p><span>{points}</span>pts.</p>
                 </div>
                 <p>Completá acá tus datos para que puedas <span className="d-b">recibir la ampolla gratis en tu casa</span></p>
 
@@ -63,8 +79,8 @@ const Form = ({ history }) => {
                     <div className="containerBtnForm">
                         <button type="submit" className="btn">Continuar</button>
                         <div>
-                            <input id="check" type="checkbox" name="check" value={check} onClick={handleCheckbox} />
-                            <label htmlFor="check">Acepto Bases y Condiciones</label>
+                            <p onClick={handleByC} >Acepto Bases y Condiciones</p>
+                            <Checkbock checked={checked} setChecked={setChecked} />
                         </div>
                     </div>
                 </form>

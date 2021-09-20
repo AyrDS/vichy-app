@@ -1,8 +1,11 @@
+import CustomProvider from "./context/Points";
 import AppRouter from "./router/AppRouter";
 
 const App = () => {
     return (
-        <AppRouter />
+        <CustomProvider>
+            <AppRouter />
+        </CustomProvider>
     );
 }
 

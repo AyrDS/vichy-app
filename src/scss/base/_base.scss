@@ -15,8 +15,8 @@ html {
     font-family: Gotham;
 }
 
-h1, .title-class {
-    // padding: 0 10px;
+h1,
+.title-class {
     text-align: center;
     color: #a91515;
     text-transform: uppercase;
@@ -47,10 +47,11 @@ p {
     display: block;
 }
 
-.answer {
-    position: absolute;
-    left: 40%;
-    bottom: 5%;
+.answer,
+.check,
+.notCheck,
+.star,
+.logo {
     -user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
@@ -59,14 +60,28 @@ p {
     -ms-user-select: none;
 }
 
+.answer {
+    position: absolute;
+    left: 40%;
+    bottom: 5%;
+
+}
+
+.check,
+.notCheck {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+}
+
+.popup {
+    height: 50vh;
+    border-radius: 20px;
+    padding: 0 50px;
+}
+
 .star {
     width: 35px;
-    -user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
 }
 
 .containerFlex {
@@ -77,37 +92,6 @@ p {
     justify-content: center;
     height: 50vh;
 }
-
-/* [type="checkbox"] {
-    display: none;
-
-    &:checked {
-        + {
-            label {
-                &:before {
-                    background-color: red;
-                }
-            }
-        }
-    }
-}
-
-label {
-    padding-left: 1.3em;
-    position: relative;
-
-    &:before {
-        content: ' ';
-        border: solid 1px #9e9e9e;
-        border-radius: 3px;
-        width: 0.8em;
-        height: 0.8em;
-        position: absolute;
-        left: 0px;
-        top: 0.1em;
-        transition: all 0.2s;
-    }
-} */
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -154,6 +138,18 @@ input[type=number] {
         left: 22%;
         width: 250px;
     }
+
+    .popup {
+        height: 70vh;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 414px) {
+    .popup {
+        height: 60vh;
+        padding: 0 10px;
+    }
 }
 
 @media (max-width: 375px) {
@@ -164,6 +160,11 @@ input[type=number] {
 
     .containerFlex {
         height: 45vh;
+    }
+
+    .popup {
+        height: 85vh;
+        padding: 0;
     }
 }
 
