@@ -54,7 +54,7 @@ const Form = ({ history }) => {
                 cancelButton: "btn-tyc-cancel",
                 popup: "popup"
             }
-        });;
+        });
     }
 
     return (
