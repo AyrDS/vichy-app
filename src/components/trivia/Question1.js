@@ -20,7 +20,7 @@ const Question1 = ({ history }) => {
         }
         setShowAnswer(true);
         setTimeout(() => {
-            history.replace("/")
+            history.replace("/");
             history.push("/question2");
         }, 1500);
     }

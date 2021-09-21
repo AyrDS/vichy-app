@@ -4,7 +4,7 @@ import Logo from "./ui/Logo";
 
 const Finish = () => {
 
-    const { valid } = useParams()
+    const { valid } = useParams();
 
     if (valid === "notvalid") {
 

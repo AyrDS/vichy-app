@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import Finish from "../components/Finish";
 import Form from "../components/Form";
 import Question1 from "../components/trivia/Question1";
@@ -17,6 +17,7 @@ const AppRouter = () => {
                     <Route exact path="/question3" component={Question3} />
                     <Route exact path="/form" component={Form} />
                     <Route exact path="/form/:valid" component={Finish} />
+                    <Redirect to="/" /> 
                 </Switch>
             </div>
         </Router>
