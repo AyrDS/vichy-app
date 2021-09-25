@@ -25,8 +25,6 @@ const Question1 = ({ history }) => {
         }, 1500);
     }
 
-
-
     return (
         <main className="mainQuestion1 animate__animated animate__fadeIn">
             <div className="container">
